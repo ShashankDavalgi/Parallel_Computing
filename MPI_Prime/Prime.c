@@ -12,7 +12,7 @@ void main()
         printf("There are no primes upto %d\n", num2);
         exit(0);
     }
-    printf("Prime numbers are \n");
+    //printf("Prime numbers are \n");
     temp = num1;
     if ( num1 % 2 == 0)
     {
@@ -31,7 +31,7 @@ void main()
         }
         if (flag == 0)
         {
-            printf("%d\n", i);
+            //printf("%d\n", i);
             count++;
         }
     }
