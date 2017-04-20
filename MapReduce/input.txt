@@ -1,0 +1,52 @@
+http://hadoopgeek.com/mapreduce-matrix-multiplication/
+
+
+  // Create a Configuration object that is used to set other options
+
+          Configuration conf = new Configuration() ;
+
+ 
+
+        // Create the object representing the job
+
+        Job job = new Job(conf, "ExampleJob") ;
+
+ 
+
+        // Set the name of the main class in the job jar file
+
+        job.setJarByClass(ExampleDriver.class) ;
+
+ 
+
+       // Set the mapper class
+
+       job.setMapperClass(ExampleMapper.class) ;
+
+ 
+
+       // Set the reducer class
+
+       job.setReducerClass(ExampleReducer.class) ;
+
+ 
+
+       // Set the types for the final output key and value
+
+        job.setOutputKeyClass(Text.class) ;
+
+        job.setOutputValueClass(IntWritable.class) ;
+
+      
+
+      // Set input and output file paths
+
+          FileInputFormat.addInputPath(job, new Path(args[0])) ;
+
+          FileOutputFormat.setOutputPath(job, new Path(args[1]))
+
+ 
+
+         // Execute the job and wait for it to complete
+
+          System.exit(job.waitForCompletion(true) ? 0 : 1);
